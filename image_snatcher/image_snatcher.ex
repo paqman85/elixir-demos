@@ -3,12 +3,11 @@ defmodule ImageSnatcher do
     # Creates a Sub-directory and moves the images into it
     
     def start() do
-        
         is_image()
     end
     
     def is_image() do
-        
+        File.mkdir("images")
         image_files = Path.wildcard( "*.jp*g")
         Enum.map(image_files, fn x -> move_image(x) end)
     end
